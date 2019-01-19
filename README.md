@@ -1,2 +1,2 @@
 # coinmag
-for all soliders
+for all soldiers
