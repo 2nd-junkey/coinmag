@@ -1,5 +1,5 @@
 radius = 22 / 2;
-thickness = 1.5;
+thickness = 1.55;
 
 numbers = 50;
 outsite = 30 / 2;
