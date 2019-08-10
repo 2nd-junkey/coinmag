@@ -8,11 +8,18 @@ shell = 94;
 
 height = thickness * numbers;
 difference(){
-    cylinder(h = shell, r = outsite, center = true);
-    translate([0, outsite/2, 0]){
-        cube([outsite*2, outsite, shell*2], center = true);
+    union(){
+        difference(){
+            cylinder(h = shell, r = outsite, center = true);
+            translate([0, outsite/2, 0]){
+                cube([outsite*2, outsite, shell*2], center = true);
+            }
+            cylinder(h = height, r = radius, center = true);
+        }
+        translate([0, 0, height/2]){
+            cylinder(h = (shell - height)/2, r = radius, center = false);
+        }
     }
-    cylinder(h = height, r = radius, center = true);
     translate([0, -(outsite*2)/2, 0]){
         cube([outsite*2, outsite, shell*2], center = true);
     }
