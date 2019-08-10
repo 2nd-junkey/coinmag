@@ -1,4 +1,5 @@
-radius = 22 / 2;
+tolerance = 1;
+radius = (22 + tolerance) / 2;
 thickness = 1.55;
 
 numbers = 50;
