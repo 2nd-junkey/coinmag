@@ -1,5 +1,5 @@
-tolerance = 1;
-radius = (30 + tolerance*2) / 2;
+tolerance = 2;
+radius = 30 / 2 + tolerance;
 thickness = 1.55;
 
 height = 94 + tolerance;
@@ -8,6 +8,9 @@ outsite = radius + thickness*2;
 difference(){
     cylinder(h = height, r = outsite, center = false);
     cylinder(h = height, r = radius, center = false);
+    translate([0, outsite, height]){
+        cube([outsite*2, outsite*2, thickness*1.5*2], center = true);
+    }
 }
 
 translate([0, 0, height]){
