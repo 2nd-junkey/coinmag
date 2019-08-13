@@ -16,8 +16,8 @@ difference(){
 translate([0, 0, height]){
     intersection(){
         cylinder(h = thickness, r = outsite, center = false);
-        translate([0, -(outsite*2 + tolerance)/2, 0]){
-            cube([outsite*2, outsite, thickness*2], center = true);
+        translate([0, -(15*2)/2, 0]){
+            cube([outsite*2, 15, thickness*2], center = true);
         }
     }
 }
