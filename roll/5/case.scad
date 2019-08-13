@@ -24,3 +24,11 @@ difference(){
         cube([outsite*2, outsite, shell*2], center = true);
     }
 }
+difference(){
+    translate([0, -outsite/8, -(shell/2 + thickness)]){
+        cube([outsite/2, outsite/4, thickness*2], center=true);
+    }
+    translate([0, -outsite/8, -(shell/2 + thickness/2)]){
+        cube([outsite/4, outsite/4, thickness], center=true);
+    }
+}
