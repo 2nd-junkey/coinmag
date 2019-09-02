@@ -1,9 +1,8 @@
 include <args.scad>
 
-key_width = case_radius + key_tolerance / 2;
+key_width = case_hole_radius;
 
-key_radius = key_width + coin_thickness*2;
-key_thickness = coin_thickness + key_tolerance;
+key_radius = chember_radius;
 
 // half circle
 difference(){

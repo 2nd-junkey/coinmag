@@ -1,10 +1,5 @@
 include <args.scad>
 
-filer_radius = case_radius + filer_tolerance;
-filer_height = case_height;
-
-filer_hole_radius = coin_radius + filer_tolerance;
-
 // sluice
 difference(){
     cylinder(h = filer_height, r = filer_radius, center = false);

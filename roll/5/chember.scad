@@ -1,9 +1,5 @@
 include <args.scad>
 
-case_hole_radius = case_radius + case_tolerance / 2;
-case_hole_height = case_height + case_tolerance;
-
-chember_radius = case_hole_radius + coin_thickness * 2;
 
 // main frame
 difference(){
@@ -25,15 +21,15 @@ translate([0, 0, case_hole_height]){
 }
 
 // keyhole
-translate([0, 0, -coin_thickness*3]){
+translate([0, 0, -key_thickness*3]){
     difference(){
-        cylinder(h = coin_thickness*3, r = chember_radius, center = false);
-        cylinder(h = coin_thickness*3, r = case_hole_radius, center = false);
-        translate([0, -(chember_radius + case_tolerance)/2, (coin_thickness + case_tolerance)]){
-            cube([chember_radius*2, chember_radius, coin_thickness*2], center = true);
+        cylinder(h = key_thickness*3, r = chember_radius, center = false);
+        cylinder(h = key_thickness*3, r = case_hole_radius, center = false);
+        translate([0, -(chember_radius + case_tolerance)/2, (key_thickness + case_tolerance)]){
+            cube([chember_radius*2, chember_radius, key_thickness*2], center = true);
         }
-        translate([0, 0, (coin_thickness + case_tolerance)]){
-            cube([case_hole_radius*2, case_hole_radius*2, coin_thickness*2], center = true);
+        translate([0, 0, (key_thickness + case_tolerance)]){
+            cube([case_hole_radius*2, case_hole_radius*2, key_thickness*2], center = true);
         }
     }
 }

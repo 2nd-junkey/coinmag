@@ -23,10 +23,10 @@ difference(){
 
 // strap hole
 difference(){
-    translate([0, -case_radius/8, -(case_height/2 + coin_thickness)]){
-        cube([case_radius/2, case_radius/4, coin_thickness*2], center=true);
+    translate([0, -case_radius/8, -(case_height/2 + coin_thickness*1.5)]){
+        cube([case_radius/2, case_radius/4, coin_thickness*3], center=true);
     }
-    translate([0, -case_radius/8, -(case_height/2 + coin_thickness/2)]){
-        cube([case_radius/4, case_radius/4, coin_thickness], center=true);
+    translate([0, -case_radius/8, -(case_height/2 + coin_thickness/1)]){
+        cube([case_radius/4, case_radius/4, coin_thickness*2], center=true);
     }
 }
