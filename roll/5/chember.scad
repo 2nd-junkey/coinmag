@@ -1,10 +1,11 @@
 include <args.scad>
 
-chember_radius = case_hole_radius + coin_thickness * 2;
-
 case_hole_radius = case_radius + case_tolerance / 2;
 case_hole_height = case_height + case_tolerance;
 
+chember_radius = case_hole_radius + coin_thickness * 2;
+
+// main frame
 difference(){
     cylinder(h = case_hole_height, r = chember_radius, center = false);
     cylinder(h = case_hole_height, r = case_hole_radius, center = false);
@@ -13,6 +14,7 @@ difference(){
     }
 }
 
+// flap
 translate([0, 0, case_hole_height]){
     intersection(){
         cylinder(h = coin_thickness, r = chember_radius, center = false);
@@ -22,6 +24,7 @@ translate([0, 0, case_hole_height]){
     }
 }
 
+// keyhole
 translate([0, 0, -coin_thickness*3]){
     difference(){
         cylinder(h = coin_thickness*3, r = chember_radius, center = false);

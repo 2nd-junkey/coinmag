@@ -2,6 +2,7 @@ include <args.scad>
 
 coin_insert_radius = coin_radius + coin_tolerance / 2;
 
+// main frame
 difference(){
     union(){
         difference(){
@@ -19,6 +20,8 @@ difference(){
         cube([case_radius*2, case_radius, case_height*2], center = true);
     }
 }
+
+// strap hole
 difference(){
     translate([0, -case_radius/8, -(case_height/2 + coin_thickness)]){
         cube([case_radius/2, case_radius/4, coin_thickness*2], center=true);

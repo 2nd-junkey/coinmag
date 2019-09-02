@@ -7,6 +7,7 @@ filer_hole_radius = coin_radius + filer_tolerance;
 
 difference(){
     union(){
+        // sluice
         difference(){
             cylinder(h = filer_height, r = filer_radius + filer_tolerance, center = false);
             translate([0, filer_radius-filer_tolerance, 0]){
@@ -14,6 +15,7 @@ difference(){
             }
             cylinder(h = filer_height, r = filer_hole_radius, center = false);
         }
+        // outer frame
         difference(){
             cylinder(h = filer_height + coin_thickness, r = filer_radius+filer_tolerance, center = false);
             cylinder(h = filer_height + coin_thickness, r = filer_radius, center = false);
