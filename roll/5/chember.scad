@@ -1,5 +1,10 @@
 include <args.scad>
 
+chember_radius = case_hole_radius + coin_thickness * 2;
+
+case_hole_radius = case_radius + case_tolerance / 2;
+case_hole_height = case_height + case_tolerance;
+
 difference(){
     cylinder(h = case_hole_height, r = chember_radius, center = false);
     cylinder(h = case_hole_height, r = case_hole_radius, center = false);

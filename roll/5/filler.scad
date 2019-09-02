@@ -1,5 +1,10 @@
 include <args.scad>
 
+filer_radius = case_radius;
+filer_height = case_height;
+
+filer_hole_radius = coin_radius + filer_tolerance;
+
 difference(){
     union(){
         difference(){

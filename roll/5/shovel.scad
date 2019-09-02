@@ -1,5 +1,6 @@
 include <args.scad>
 
+shovel_radius = case_radius;
 shovel_height = coin_thickness * shovel_coin_numbers;
 
 difference(){

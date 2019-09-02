@@ -1,5 +1,7 @@
 include <args.scad>
 
+coin_insert_radius = coin_radius + coin_tolerance / 2;
+
 difference(){
     union(){
         difference(){
