@@ -1,18 +1,18 @@
-radius = 22 /2;
-thickness = 1.5;
+coin_radius = 22 /2;
+coin_thickness = 1.55;
 
-numbers = 5;
-outsite = 30 / 2;
-shell = 2;
+coin_numbers = 5;
+shovel_radius = 30 / 2;
+shovel_bottom = 2;
 
-height = thickness * numbers;
+height = coin_thickness * coin_numbers;
 
 difference(){
-    cylinder(h = height+shell, r = outsite, center = false);
-    translate([0, outsite/2, (height+shell)/2]){
-        cube([outsite*2, outsite, (height+shell)*2], center = true);
+    cylinder(h = height+shovel_bottom, r = shovel_radius, center = false);
+    translate([0, shovel_radius/2, (height+shovel_bottom)/2]){
+        cube([shovel_radius*2, shovel_radius, (height+shovel_bottom)*2], center = true);
     }
-    translate([0, 0, shell]){
-        cylinder(h = height+shell, r = radius, center = false);
+    translate([0, 0, shovel_bottom]){
+        cylinder(h = height+shovel_bottom, r = coin_radius, center = false);
     }
 }

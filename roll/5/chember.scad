@@ -1,36 +1,36 @@
-tolerance = 2;
-radius = 30 / 2 + tolerance;
-thickness = 1.55;
+case_tolerance = 2;
+case_hole_radius = 30 / 2 + case_tolerance;
+coin_thickness = 1.55;
 
-height = 94 + tolerance;
-outsite = radius + thickness*2;
+case_hole_height = 94 + case_tolerance;
+chember_radius = case_hole_radius + coin_thickness*2;
 
 difference(){
-    cylinder(h = height, r = outsite, center = false);
-    cylinder(h = height, r = radius, center = false);
-    translate([0, outsite, height]){
-        cube([outsite*2, outsite*2, thickness*1.5*2], center = true);
+    cylinder(h = case_hole_height, r = chember_radius, center = false);
+    cylinder(h = case_hole_height, r = case_hole_radius, center = false);
+    translate([0, chember_radius, case_hole_height]){
+        cube([chember_radius*2, chember_radius*2, coin_thickness*1.5*2], center = true);
     }
 }
 
-translate([0, 0, height]){
+translate([0, 0, case_hole_height]){
     intersection(){
-        cylinder(h = thickness, r = outsite, center = false);
+        cylinder(h = coin_thickness, r = chember_radius, center = false);
         translate([0, -(15*2)/2, 0]){
-            cube([outsite*2, 15, thickness*2], center = true);
+            cube([chember_radius*2, 15, coin_thickness*2], center = true);
         }
     }
 }
 
-translate([0, 0, -thickness*3]){
+translate([0, 0, -coin_thickness*3]){
     difference(){
-        cylinder(h = thickness*3, r = outsite, center = false);
-        cylinder(h = thickness*3, r = radius, center = false);
-        translate([0, -(outsite + tolerance)/2, (thickness + tolerance)]){
-            cube([outsite*2, outsite, thickness*2], center = true);
+        cylinder(h = coin_thickness*3, r = chember_radius, center = false);
+        cylinder(h = coin_thickness*3, r = case_hole_radius, center = false);
+        translate([0, -(chember_radius + case_tolerance)/2, (coin_thickness + case_tolerance)]){
+            cube([chember_radius*2, chember_radius, coin_thickness*2], center = true);
         }
-        translate([0, 0, (thickness + tolerance)]){
-            cube([radius*2, radius*2, thickness*2], center = true);
+        translate([0, 0, (coin_thickness + case_tolerance)]){
+            cube([case_hole_radius*2, case_hole_radius*2, coin_thickness*2], center = true);
         }
     }
 }

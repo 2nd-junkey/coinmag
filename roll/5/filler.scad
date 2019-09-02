@@ -1,25 +1,25 @@
-tolerance = 1;
-radius = 22 / 2 + tolerance;
-thickness = 1.55;
+filter_tolerance = 1;
+coin_radius = 22 / 2;
+filter_hole_radius = coin_radius + filter_tolerance;
+coin_thickness = 1.55;
 
-numbers = 50;
-outsite = 30 / 2;
-shell = 94;
+filter_radius = 30 / 2;
+filter_height = 94;
 
 difference(){
     union(){
         difference(){
-            cylinder(h = shell, r = outsite + tolerance, center = false);
-            translate([0, outsite-tolerance, 0]){
-                cube([(outsite + tolerance)*2, outsite*2, (shell)*2], center = true);
+            cylinder(h = filter_height, r = filter_radius + filter_tolerance, center = false);
+            translate([0, filter_radius-filter_tolerance, 0]){
+                cube([(filter_radius + filter_tolerance)*2, filter_radius*2, (filter_height)*2], center = true);
             }
-            cylinder(h = shell, r = radius, center = false);
+            cylinder(h = filter_height, r = filter_hole_radius, center = false);
         }
         difference(){
-            cylinder(h = shell + thickness, r = outsite+tolerance, center = false);
-            cylinder(h = shell + thickness, r = outsite, center = false);
-            translate([0, -(outsite+tolerance), shell + thickness]){
-                cube([(outsite + tolerance)*2, (outsite+tolerance)*2, (thickness)*2], center = true);
+            cylinder(h = filter_height + coin_thickness, r = filter_radius+filter_tolerance, center = false);
+            cylinder(h = filter_height + coin_thickness, r = filter_radius, center = false);
+            translate([0, -(filter_radius+filter_tolerance), filter_height + coin_thickness]){
+                cube([(filter_radius + filter_tolerance)*2, (filter_radius+filter_tolerance)*2, (coin_thickness)*2], center = true);
             }
         }
     }
